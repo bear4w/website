@@ -7,85 +7,101 @@
   <link rel="stylesheet" href="https://cloudflare.com">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#000;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px;color:#e7e9ea}
-    .card{background:#16181c;max-width:600px;width:100%;border-radius:24px;border:1px solid #2f3336;overflow:hidden}
-    .banner{height:130px;background:linear-gradient(135deg,#1d9bf0,#0a4b7a);padding:14px 18px;color:#fff;font-weight:700;font-size:19px;display:flex;align-items:center;gap:16px}
-    .header{padding:0 18px;display:flex;justify-content:space-between;align-items:flex-end;margin-top:-45px}
-    .avatar{width:92px;height:92px;border-radius:50%;background:#1e3a5f;border:4px solid #16181c;display:flex;align-items:center;justify-content:center;font-size:46px}
-    .btn-lang{background:rgba(29,155,240,.15);border:1px solid #1d9bf0;color:#1d9bf0;font-weight:600;font-size:13px;padding:8px 14px;border-radius:99px;cursor:pointer;margin-bottom:6px;transition:.2s}
+    html,body{width:100%;min-height:100vh;background:#16181c;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;color:#e7e9ea}
+    .card{width:100%;min-height:100vh;background:#16181c}
+    .banner{height:200px;background:linear-gradient(135deg,#1d9bf0,#0a4b7a);padding:18px 24px;color:#fff;font-weight:700;font-size:20px;display:flex;align-items:flex-start}
+    .b-in{max-width:960px;width:100%;margin:0 auto;display:flex;align-items:center;gap:16px}
+    .wrap{max-width:960px;width:100%;margin:0 auto}
+    .header{padding:0 24px;display:flex;justify-content:space-between;align-items:flex-end;margin-top:-60px}
+    .avatar{width:124px;height:124px;border-radius:50%;background:#1e3a5f;border:4px solid #16181c;display:flex;align-items:center;justify-content:center;font-size:58px;overflow:hidden}
+    .avatar img,.t-ava img{width:100%;height:100%;object-fit:cover;display:block}
+    .btn-lang{background:rgba(29,155,240,.15);border:1px solid #1d9bf0;color:#1d9bf0;font-weight:600;font-size:14px;padding:10px 18px;border-radius:99px;cursor:pointer;margin-bottom:10px;transition:.2s}
     .btn-lang:hover{background:rgba(29,155,240,.25)}
-    .info{padding:12px 18px 16px}
-    .name{font-size:21px;font-weight:800;display:flex;align-items:center;gap:5px}
-    .badge{width:19px;height:19px;fill:#1d9bf0}
-    .handle{color:#71767b;font-size:15px;margin-bottom:14px}
-    .line{font-size:15px;margin-bottom:10px;line-height:1.4}
-    .lbl{color:#71767b;font-size:13px;display:block}
-    .tag{background:#1e2a3a;color:#a0c6f0;padding:4px 12px;border-radius:20px;font-size:14px;display:inline-flex;align-items:center;gap:6px;border:1px solid #2f4b6e;margin-top:2px;cursor:pointer;transition:.2s}
+    .info{padding:14px 24px 20px}
+    .name{font-size:24px;font-weight:800;display:flex;align-items:center;gap:6px}
+    .badge{width:21px;height:21px;fill:#1d9bf0}
+    .handle{color:#71767b;font-size:15px;margin-bottom:16px}
+    .line{font-size:16px;margin-bottom:12px;line-height:1.45}
+    .lbl{color:#71767b;font-size:13px;display:block;margin-bottom:2px}
+    .tag{background:#1e2a3a;color:#a0c6f0;padding:5px 14px;border-radius:20px;font-size:15px;display:inline-flex;align-items:center;gap:6px;border:1px solid #2f4b6e;cursor:pointer;transition:.2s}
     .tag:hover{border-color:#5865F2;background:#253447}
     .link{color:#1d9bf0;text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-weight:500;word-break:break-all}
     .link:hover{text-decoration:underline}
-    .copy-box{display:inline-flex;align-items:center;gap:8px;background:#202327;border:1px solid #2f3336;padding:4px 12px;border-radius:20px;cursor:pointer;margin-top:2px;transition:.2s}
+    .copy-box{display:inline-flex;align-items:center;gap:8px;background:#202327;border:1px solid #2f3336;padding:5px 14px;border-radius:20px;cursor:pointer;transition:.2s}
     .copy-box:hover{border-color:#71767b}
-    .meta{display:flex;flex-wrap:wrap;gap:10px 18px;color:#71767b;font-size:14px;margin:14px 0}
-    .stats{display:flex;gap:18px;font-size:15px}
+    .meta{display:flex;flex-wrap:wrap;gap:12px 20px;color:#71767b;font-size:15px;margin:16px 0}
+    .stats{display:flex;gap:22px;font-size:16px}
     .stats span{color:#71767b}
-    .tabs{display:flex;border-top:1px solid #2f3336;border-bottom:1px solid #2f3336;margin-top:12px}
-    .tab{flex:1;text-align:center;padding:12px 4px;color:#71767b;font-weight:600;font-size:14px}
+    .tabs{display:flex;border-top:1px solid #2f3336;border-bottom:1px solid #2f3336;margin-top:8px}
+    .tab{flex:1;text-align:center;padding:15px 4px;color:#71767b;font-weight:600;font-size:15px}
     .tab.active{color:#e7e9ea;border-bottom:3px solid #1d9bf0}
-    .tweet{padding:16px 18px;display:flex;gap:12px}
-    .t-ava{width:40px;height:40px;border-radius:50%;background:#1e3a5f;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
-    .t-body{flex:1;font-size:15px;line-height:1.45}
-    .t-head{display:flex;align-items:center;gap:5px;margin-bottom:4px;flex-wrap:wrap}
-    .t-gray{color:#71767b;font-size:14px}
-    .t-acts{display:flex;justify-content:space-between;max-width:320px;color:#71767b;margin-top:12px}
-    @media(max-width:600px){body{padding:0;background:#16181c;align-items:flex-start}.card{border-radius:0;border:none;min-height:100vh}}
+    .tweet{padding:20px 24px;display:flex;gap:14px;border-bottom:1px solid #2f3336}
+    .t-ava{width:46px;height:46px;border-radius:50%;background:#1e3a5f;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;overflow:hidden}
+    .t-body{flex:1;font-size:16px;line-height:1.5}
+    .t-head{display:flex;align-items:center;gap:6px;margin-bottom:6px;flex-wrap:wrap}
+    .t-gray{color:#71767b;font-size:15px}
+    .t-acts{display:flex;justify-content:space-between;max-width:420px;color:#71767b;margin-top:14px;font-size:16px}
+    @media(max-width:600px){
+      .banner{height:130px;padding:14px 16px}
+      .header{padding:0 16px;margin-top:-45px}
+      .avatar{width:92px;height:92px;font-size:46px}
+      .info,.tweet{padding-left:16px;padding-right:16px}
+      .btn-lang{padding:8px 14px;font-size:13px}
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <div class="banner"><i class="fas fa-arrow-left"></i><span id="t_prof">Profile</span></div>
-    <div class="header">
-      <div class="avatar">🐻</div>
-      <button type="button" class="btn-lang" id="langBtn">Перевести на русский</button>
-    </div>
-    <div class="info">
-      <div class="name">bear <svg class="badge" viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"/></svg></div>
-      <div class="handle">@bear4w</div>
-      <div class="line" id="t_hi">hi there! 👋</div>
-      <div class="line"><span class="lbl" id="t_ab_l">about me:</span><span id="t_ab_v">just a bear on the internet</span></div>
-      <div class="line"><span class="lbl" id="t_pr_l">pronouns:</span><span id="t_pr_v">he/him</span></div>
-      <div class="line"><span class="lbl" id="t_dm_l">DM me:</span><span class="tag" id="copyDiscord"><i class="fab fa-discord"></i> <span id="discordTxt">@bear4w</span> <i class="far fa-copy" style="font-size:12px;opacity:.7"></i></span></div>
-      <div class="line"><span class="lbl" id="t_rb_l">Roblox:</span><a href="https://roblox.com" target="_blank" rel="noopener noreferrer" class="link"><i class="fas fa-gamepad"></i> ://roblox.com</a></div>
-      <div class="line"><span class="lbl" id="t_fn_l">fun fact:</span><span class="copy-box" id="copyBox"><span id="mrrpTxt">mrrp :3</span> <i class="far fa-copy"></i></span></div>
-      <div class="meta">
-        <div><i class="fas fa-calendar-alt"></i> <span id="t_join">Joined June 2020</span></div>
-        <div><i class="fas fa-map-marker-alt"></i> Discord</div>
+    <div class="banner"><div class="b-in"><i class="fas fa-arrow-left"></i><span id="t_prof">Profile</span></div></div>
+    <div class="wrap">
+      <div class="header">
+        <div class="avatar"><img class="ava-img" alt="bear"></div>
+        <button type="button" class="btn-lang" id="langBtn">Перевести на русский</button>
       </div>
-      <div class="stats">
-        <div><b>123</b> <span id="t_f1">Following</span></div>
-        <div><b>1.4K</b> <span id="t_f2">Followers</span></div>
+      <div class="info">
+        <div class="name">bear <svg class="badge" viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"/></svg></div>
+        <div class="handle">@bear4w</div>
+        <div class="line" id="t_hi">hi there! 👋</div>
+        <div class="line"><span class="lbl" id="t_ab_l">about me:</span><span id="t_ab_v">just a bear on the internet</span></div>
+        <div class="line"><span class="lbl" id="t_pr_l">pronouns:</span><span id="t_pr_v">he/him</span></div>
+        <div class="line"><span class="lbl" id="t_dm_l">DM me:</span><span class="tag" id="copyDiscord"><i class="fab fa-discord"></i> <span id="discordTxt">@bear4w</span> <i class="far fa-copy" style="font-size:12px;opacity:.7"></i></span></div>
+        <div class="line"><span class="lbl" id="t_rb_l">Roblox:</span><a href="https://www.roblox.com/users/4405380036/profile" target="_blank" rel="noopener noreferrer" class="link"><i class="fas fa-gamepad"></i> https://www.roblox.com/users/4405380036/profile</a></div>
+        <div class="line"><span class="lbl" id="t_fn_l">fun fact:</span><span class="copy-box" id="copyBox"><span id="mrrpTxt">mrrp :3</span> <i class="far fa-copy"></i></span></div>
+        <div class="meta">
+          <div><i class="fas fa-calendar-alt"></i> <span id="t_join">Joined June 2020</span></div>
+          <div><i class="fas fa-map-marker-alt"></i> Discord</div>
+        </div>
+        <div class="stats">
+          <div><b>123</b> <span id="t_f1">Following</span></div>
+          <div><b>1.4K</b> <span id="t_f2">Followers</span></div>
+        </div>
       </div>
-    </div>
-    <div class="tabs">
-      <div class="tab active" id="t_tab1">Tweets</div>
-      <div class="tab" id="t_tab2">Replies</div>
-      <div class="tab" id="t_tab3">Media</div>
-      <div class="tab" id="t_tab4">Likes</div>
-    </div>
-    <div class="tweet">
-      <div class="t-ava">🐻</div>
-      <div class="t-body">
-        <div class="t-head"><b>bear</b> <svg class="badge" viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"/></svg> <span class="t-gray">@bear4w · <span id="t_time">2h</span></span></div>
-        <div id="t_post">mrrp :3<br>just a bear on the internet. dm me on discord @bear4w or find me on <a href="https://roblox.com" target="_blank" rel="noopener noreferrer" style="color:#1d9bf0;text-decoration:none">Roblox</a> ✨</div>
-        <div class="t-acts"><i class="far fa-comment"></i><i class="fas fa-retweet"></i><i class="far fa-heart"></i><i class="far fa-share-square"></i></div>
+      <div class="tabs">
+        <div class="tab active" id="t_tab1">Tweets</div>
+        <div class="tab" id="t_tab2">Replies</div>
+        <div class="tab" id="t_tab3">Media</div>
+        <div class="tab" id="t_tab4">Likes</div>
+      </div>
+      <div class="tweet">
+        <div class="t-ava"><img class="ava-img" alt="bear"></div>
+        <div class="t-body">
+          <div class="t-head"><b>bear</b> <svg class="badge" viewBox="0 0 24 24"><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.2-2.9-.81-3.91s-2.52-1.27-3.91-.81c-.66-1.31-1.91-2.19-3.34-2.19s-2.67.88-3.33 2.19c-1.4-.46-2.91-.2-3.92.81s-1.26 2.52-.8 3.91c-1.31.67-2.2 1.91-2.2 3.34s.89 2.67 2.2 3.34c-.46 1.39-.21 2.9.8 3.91s2.52 1.26 3.91.81c.67 1.31 1.91 2.19 3.34 2.19s2.68-.88 3.34-2.19c1.39.45 2.9.2 3.91-.81s1.27-2.52.81-3.91c1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"/></svg> <span class="t-gray">@bear4w · <span id="t_time">2h</span></span></div>
+          <div id="t_post">mrrp :3<br>just a bear on the internet. dm me on discord @bear4w or find me on <a href="https://www.roblox.com/users/4405380036/profile" target="_blank" rel="noopener noreferrer" style="color:#1d9bf0;text-decoration:none">Roblox</a> ✨</div>
+          <div class="t-acts"><i class="far fa-comment"></i><i class="fas fa-retweet"></i><i class="far fa-heart"></i><i class="far fa-share-square"></i></div>
+        </div>
       </div>
     </div>
   </div>
   <script>
+    const AVATAR_URL = "avatar.png";
+    document.querySelectorAll(".ava-img").forEach(img => {
+      img.src = AVATAR_URL;
+      img.onerror = function() { this.parentElement.textContent = "🐻"; };
+    });
     let ru = false, timers = {};
     const d = {
-      en: { btn:"Перевести на русский", t_prof:"Profile", t_hi:"hi there! 👋", t_ab_l:"about me:", t_ab_v:"just a bear on the internet", t_pr_l:"pronouns:", t_pr_v:"he/him", t_dm_l:"DM me:", t_rb_l:"Roblox:", t_fn_l:"fun fact:", t_join:"Joined June 2020", t_f1:"Following", t_f2:"Followers", t_tab1:"Tweets", t_tab2:"Replies", t_tab3:"Media", t_tab4:"Likes", t_time:"2h", t_post:'mrrp :3<br>just a bear on the internet. dm me on discord @bear4w or find me on <a href="https://roblox.com" target="_blank" rel="noopener noreferrer" style="color:#1d9bf0;text-decoration:none">Roblox</a> ✨' },
-      ru: { btn:"Translate to English", t_prof:"Профиль", t_hi:"привет! 👋", t_ab_l:"обо мне:", t_ab_v:"просто медведь в интернете", t_pr_l:"местоимения:", t_pr_v:"он/его", t_dm_l:"пишите в ЛС:", t_rb_l:"мой профиль в Roblox:", t_fn_l:"факт обо мне:", t_join:"Регистрация: июнь 2020 г.", t_f1:"В читаемых", t_f2:"Читателей", t_tab1:"Посты", t_tab2:"Ответы", t_tab3:"Медиа", t_tab4:"Нравится", t_time:"2 ч", t_post:'mrrp :3<br>просто медведь в интернете. пиши мне в дискорд @bear4w или найди меня в <a href="https://roblox.com" target="_blank" rel="noopener noreferrer" style="color:#1d9bf0;text-decoration:none">Roblox</a> ✨' }
+      en: { btn:"Перевести на русский", t_prof:"Profile", t_hi:"hi there! 👋", t_ab_l:"about me:", t_ab_v:"just a bear on the internet", t_pr_l:"pronouns:", t_pr_v:"he/him", t_dm_l:"DM me:", t_rb_l:"Roblox:", t_fn_l:"fun fact:", t_join:"Joined June 2020", t_f1:"Following", t_f2:"Followers", t_tab1:"Tweets", t_tab2:"Replies", t_tab3:"Media", t_tab4:"Likes", t_time:"2h", t_post:'mrrp :3<br>just a bear on the internet. dm me on discord @bear4w or find me on <a href="https://www.roblox.com/users/4405380036/profile" target="_blank" rel="noopener noreferrer" style="color:#1d9bf0;text-decoration:none">Roblox</a> ✨' },
+      ru: { btn:"Translate to English", t_prof:"Профиль", t_hi:"привет! 👋", t_ab_l:"обо мне:", t_ab_v:"просто медведь в интернете", t_pr_l:"местоимения:", t_pr_v:"он/его", t_dm_l:"пишите в ЛС:", t_rb_l:"мой профиль в Roblox:", t_fn_l:"факт обо мне:", t_join:"Регистрация: июнь 2020 г.", t_f1:"В читаемых", t_f2:"Читателей", t_tab1:"Посты", t_tab2:"Ответы", t_tab3:"Медиа", t_tab4:"Нравится", t_time:"2 ч", t_post:'mrrp :3<br>просто медведь в интернете. пиши мне в дискорд @bear4w или найди меня в <a href="https://www.roblox.com/users/4405380036/profile" target="_blank" rel="noopener noreferrer" style="color:#1d9bf0;text-decoration:none">Roblox</a> ✨' }
     };
     document.getElementById("langBtn").onclick = function() {
       ru = !ru;
